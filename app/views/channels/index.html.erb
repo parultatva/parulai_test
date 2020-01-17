@@ -1,0 +1,55 @@
+
+<div class="container">
+  <h1>TV Shows</h1>
+  Search: <input type="text" name="search" id="search"><button type="button" id="click_me">Click Me!</button><br>
+  <table class="table table-hover" id="dttb">
+    <thead>
+      <tr>
+        <th>Channel Name</th>
+        <th>Timing</th>
+        <th>Shows</th>
+      </tr>
+    </thead>
+    <tbody id="display_show">
+      <%= render :partial => "get_show", :locals => { :tv_shows => @tv_shows } %>
+      <!-- <%# @channels.each do |channel| %>
+      <%# channel.tv_shows.each do |tv_show| %>
+      <tr>
+        <td><%#= channel&.name %></td>
+        <td><%#= tv_show&.timing.try(:strftime, '%H:%M %p') %></td>
+        <td><%#= tv_show&.name %></td>
+      </tr>
+      <%# end %>
+      <%# end %> -->
+    </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#dttb").dataTable();
+  })
+
+  $("#click_me").click(function(){
+    var search_word = $('#search').val()
+    if (search_word == "")
+    {
+      alert("Select atleast one word.");
+    }
+    else {
+      $.ajax({
+        type: "GET", 
+        url: "/get_shows",
+        data: {word: search_word},
+        dataType: 'script',
+        success: function(data, textStatus, jqXHR){
+          console.log("success");
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          console.log("error");
+        }
+      });
+    }
+  });
+</script>

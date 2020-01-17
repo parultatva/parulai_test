@@ -1,0 +1,13 @@
+<% if tv_shows.present? %>
+  <% tv_shows.each do |tv_show| %>
+    <tr>
+      <td><%= tv_show&.channel&.name %></td>
+      <td><%= tv_show&.timing.try(:strftime, '%I:%M %p') %></td>
+      <td><%= tv_show&.name %></td>
+    </tr>
+  <% end %>
+<% else %>
+  <tr>
+    <td>Data not available</td>
+  </tr>
+<% end %>
