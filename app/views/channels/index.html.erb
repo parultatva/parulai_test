@@ -12,15 +12,6 @@
     </thead>
     <tbody id="display_show">
       <%= render :partial => "get_show", :locals => { :tv_shows => @tv_shows } %>
-      <!-- <%# @channels.each do |channel| %>
-      <%# channel.tv_shows.each do |tv_show| %>
-      <tr>
-        <td><%#= channel&.name %></td>
-        <td><%#= tv_show&.timing.try(:strftime, '%H:%M %p') %></td>
-        <td><%#= tv_show&.name %></td>
-      </tr>
-      <%# end %>
-      <%# end %> -->
     </tbody>
   </table>
 </div>
