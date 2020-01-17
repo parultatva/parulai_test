@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-Setup Project
+# Setup Project
 
 gem install bundler
 
