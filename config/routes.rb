@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # resources :channels
   root 'channels#index'
   get '/get_shows', to: 'channels#get_shows'
 

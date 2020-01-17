@@ -1,7 +1,26 @@
 
 <div class="container">
   <h1>TV Shows</h1>
-  Search: <input type="text" name="search" id="search"><button type="button" id="click_me">Click Me!</button><br>
+  <div class="row">
+    <div class="col-md-9">
+      Search: <input type="text" name="search" id="search"><button type="button" id="click_me">Click Me!</button><br>
+    </div>
+    <% if current_user.present? %>
+      <div class="col-md-2">
+        <%= current_user&.email %> 
+      </div>
+      <div class="col-md-1">
+        <%= link_to("Logout", destroy_user_session_path ) %>
+      </div>
+    <% else %>
+      <div class="col-md-1">
+        <%= link_to("Sign up", new_user_registration_path ) %> 
+      </div>
+      <div class="col-md-1">
+        <%= link_to("Sign in", new_user_session_path ) %>
+      </div>
+    <% end %>
+  </div>
   <table class="table table-hover" id="dttb">
     <thead>
       <tr>
