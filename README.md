@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Setup Project
+
+gem install bundler
+
+bundle install
+
+rake db:schema:load
+
+rake db:seed

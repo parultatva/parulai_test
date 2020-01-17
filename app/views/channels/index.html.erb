@@ -33,23 +33,17 @@
 
   $("#click_me").click(function(){
     var search_word = $('#search').val()
-    if (search_word == "")
-    {
-      alert("Select atleast one word.");
-    }
-    else {
-      $.ajax({
-        type: "GET", 
-        url: "/get_shows",
-        data: {word: search_word},
-        dataType: 'script',
-        success: function(data, textStatus, jqXHR){
-          console.log("success");
-        },
-        error: function(jqXHR, textStatus, errorThrown){
-          console.log("error");
-        }
-      });
-    }
+    $.ajax({
+      type: "GET", 
+      url: "/get_shows",
+      data: {word: search_word},
+      dataType: 'script',
+      success: function(data, textStatus, jqXHR){
+        console.log("success");
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+        console.log("error");
+      }
+    });
   });
 </script>
